@@ -1,0 +1,41 @@
+mybatis-plus:
+  mapper-locations: classpath*:**/mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: uuid
+spring:
+  datasource:
+    url: jdbc:h2:mem:test;INIT=RUNSCRIPT FROM 'classpath:db/data.sql'
+    driver-class-name: org.h2.Driver
+    username: root
+    password: root
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  application:
+    name: demo
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  http:
+    encoding:
+      charset: utf-8
+
+
+logging:
+  level:
+    com:
+      yamap:
+        mapper: DEBUG
+
+
+server:
+  port: 8080
